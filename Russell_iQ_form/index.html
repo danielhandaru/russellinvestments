@@ -14,11 +14,21 @@
 <script src="js/validator.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="js/numeric.js"></script>
+<script src="js/iframeResizer.contentWindow.min.js"></script>
+
  
 <!--[if lt IE 9]>
 	  <script src="js/html5shiv.js"></script>
 	  <script src="js/respond.min.js"></script>
 	<![endif]-->
+<script>
+			var iFrameResizer = {
+					messageCallback: function(message){
+						alert(message,parentIFrame.getId());
+					}
+				}
+</script>
+
 <style>
 body { font-family: "CompatilFactLTW01-Regul 721693", Arial, sans-serif; }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: "CompatilFactLTW01-Regul 721693", Arial, sans-serif; font-weight: 100 !important; color: #333333; }
@@ -68,20 +78,20 @@ p { color: #5c5c5c; }
   <div class="container-fluid"> <br>
     <br>
     <br>
-    <h1 style="text-align: center;">JOIN IQ SUPER<sup>TM</sup> &ndash; SAVER<br>
-	   
-    </h1>
+<!--     <h1 style="text-align: center;">JOIN IQ SUPER<sup>TM</sup> &ndash; SAVER<br> </h1>-->
+	   <img src="img/BanneriQSuper_03_a.jpg" alt="BanneriQSuper_03_a" width="100%">
+    <br><br>
     
     <h3 style="text-align:center">Exclusively for One Big Switch customers</h3>
     <h3 style="text-align: center; font-size: 1.2em;">Please complete this form to open your iQ Super &ndash; Saver account in six simple steps.</h3>
-    <p style="text-align: center;">(Please complete all fields)</p>
+    <p style="text-align: center;">(Please complete all fields marked with *.)</p>
     <hr>
     <h3><span class="numbers">1.</span> Tell us about yourself</h3>
     <br>
     <form class="form-horizontal"  id="registration-form" data-toggle="validator" role="form" method="get" action="thankyou.html">
       <div class="row">
         <div class="col-md-2 ">
-          <p>TITLE</p>
+          <p>TITLE*</p>
           <div class="form-group">
             <div class="btn-group btn-input clearfix col-sm-12 ">
               <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown" id="title" required> <span data-bind="label"></span>&nbsp; <span class="caret "></span> </button>
@@ -96,7 +106,7 @@ p { color: #5c5c5c; }
           </div>
         </div>
         <div class="col-md-5 ">
-          <p>GIVEN NAMES</p>
+          <p>GIVEN NAMES*</p>
           <div class="form-group">
             <div class="col-md-12">
               <input class="form-control" id="inputName" name="firstname" type="text" required>
@@ -104,7 +114,7 @@ p { color: #5c5c5c; }
           </div>
         </div>
         <div class="col-md-5 ">
-          <p>SURNAME</p>
+          <p>SURNAME*</p>
           <div class="form-group">
             <div class="col-md-12">
               <input class="form-control" id="inputSurname" required>
@@ -112,7 +122,7 @@ p { color: #5c5c5c; }
           </div>
         </div>
         <div class="col-md-2 ">
-          <p>DATE OF BIRTH</p>
+          <p>DATE OF BIRTH*</p>
           <div class="form-group">
             <div class="col-md-12" >
               <input class="form-control" id="datepicker" type="text" required>
@@ -120,7 +130,7 @@ p { color: #5c5c5c; }
           </div>
         </div>
         <div class="col-md-3 ">
-          <p>GENDER</p>
+          <p>GENDER*</p>
           <div class="form-group">
             <div class="col-md-12 radio">
               <div class="btn-group" data-toggle="buttons">
@@ -142,7 +152,7 @@ p { color: #5c5c5c; }
       <br>
       <div class="row">
         <div class="col-md-6 ">
-          <p>ADDRESS</p>
+          <p>ADDRESS*</p>
           <div class="form-group">
             <div class="col-md-12">
               <input class="form-control" id="inputAddress1" placeholder="LINE 1" required >
@@ -150,7 +160,7 @@ p { color: #5c5c5c; }
           </div>
         </div>
         <div class="col-md-6 ">
-          <p>&nbsp;</p>
+          <p>ADDRESS LINE 2</p>
           <div class="form-group"> 
             <!--           <label for="inputPassword" class="col-md-4 control-label">OTHER</label> -->
             <div class="col-md-12">
@@ -159,7 +169,7 @@ p { color: #5c5c5c; }
           </div>
         </div>
         <div class="col-md-6 ">
-          <p>SUBURB</p>
+          <p>SUBURB*</p>
           <div class="form-group"> 
             <!--           <label for="inputPassword" class="col-md-4 control-label">OTHER</label> -->
             <div class="col-md-12">
@@ -168,7 +178,7 @@ p { color: #5c5c5c; }
           </div>
         </div>
         <div class="col-md-6 ">
-          <p>STATE</p>
+          <p>STATE*</p>
           <div class="form-group">
             <div class="btn-group btn-input clearfix col-sm-12">
               <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown" id="state"> <span data-bind="label"></span>&nbsp;<span class="caret"></span> </button>
@@ -187,7 +197,7 @@ p { color: #5c5c5c; }
           </div>
         </div>
         <div class="col-md-6 ">
-          <p>POSTCODE</p>
+          <p>POSTCODE*</p>
           <div class="form-group"> 
             <!--           <label for="inputEmail" class="col-md-4 control-label">TITLE*</label> -->
             <div class="col-md-12">
@@ -196,7 +206,7 @@ p { color: #5c5c5c; }
           </div>
         </div>
         <div class="col-md-6 ">
-          <p>COUNTRY</p>
+          <p>COUNTRY*</p>
           <div class="form-group">
             <div class="btn-group btn-input clearfix col-sm-12">
               <input class="form-control" id="inputCountry"  type="text" required>
@@ -204,7 +214,7 @@ p { color: #5c5c5c; }
           </div>
         </div>
         <div class="col-md-6 ">
-          <p>EMAIL ADDRESS</p>
+          <p>EMAIL ADDRESS*</p>
           <div class="form-group">
             <div class="col-md-12">
               <input class="form-control" id="inputEmail"  type="email" required>
@@ -214,7 +224,7 @@ p { color: #5c5c5c; }
 		<div class="col-md-6">
 			<div class="form-group has-feedback">
 				<div class="col-md-12">
-				    <p>CONFIRM EMAIL ADDRESS</p>
+				    <p>CONFIRM EMAIL ADDRESS*</p>
 				    <div class="input-group" style="width: 100% !important;">
 				      <input type="text"  class="form-control" id="inputEmail2"  type="email" style="border-radius: 3px !important;" data-match="#inputEmail" data-match-error="The email addresses you entered don’t match" required>
 				    </div>
@@ -235,7 +245,7 @@ p { color: #5c5c5c; }
         </div>
 -->
         <div class="col-md-6">
-          <p>MOBILE CONTACT NUMBER</p>
+          <p>MOBILE CONTACT NUMBER*</p>
           <div class="form-group">
             <div class="col-md-12">
               <input class="form-control" id="inputMobile" type="text" required>
@@ -262,7 +272,7 @@ p { color: #5c5c5c; }
 -->
       </div>
       <hr>
-      <h3><span class="numbers">3.</span> Tax File Number</h3>
+      <h3><span class="numbers">3.</span> Tax File Number*</h3>
       <div class="row">
         <div class="col-md-12 ">
           <div class="form-group">
@@ -296,7 +306,7 @@ p { color: #5c5c5c; }
         </div>
       </div>
       <hr>
-      <h3><span class="numbers">4.</span> Investment strategy</h3>
+      <h3><span class="numbers">4.</span> Investment strategy*</h3>
       <div class="row">
         <div class="col-md-12 ">
           <div class="form-group">
@@ -357,7 +367,7 @@ p { color: #5c5c5c; }
         </div>
       </div>
       <hr>
-      <h3><span class="numbers">5.</span> Insurance cover</h3>
+      <h3><span class="numbers">5.</span> Insurance cover*</h3>
       <div class="row">
         <div class="col-md-12 ">
           <div class="form-group">
@@ -392,7 +402,7 @@ p { color: #5c5c5c; }
         </div>
       
       <hr>
-      <h3><span class="numbers">6.</span> Consolidate your super</h3>
+      <h3><span class="numbers">6.</span> Consolidate your super*</h3>
       <p>Send us on a search to find your other super and consolidate it all into your iQ Super – Saver account. Do make sure you read 	<span class="item">
          <span class="subitem-3"><a href="javascript:void(0)">this important information</a>.</span>
     </span></p>
